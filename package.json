@@ -19,8 +19,8 @@
     "services:down": "docker compose -f infra/compose.yaml down",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
-    "lint:eslint:check": "eslint .",
     "lint:eslint:fix": "eslint . --fix",
+    "lint:eslint:check": "next lint --dir .",
     "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand\"",
     "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
@@ -41,6 +41,10 @@
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
     "concurrently": "^8.2.2",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^13.1.6",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^26.9.0",
     "jest": "^30.2.0",
     "prettier": "^3.7.4"
   }
